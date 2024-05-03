@@ -1,4 +1,4 @@
-exports.success = function(req, res, status=200, message="", err){
+exports.success = function(req, res, status=200, message=""){
   res.status(status).send({
     error: false,
     status: status,
@@ -6,7 +6,7 @@ exports.success = function(req, res, status=200, message="", err){
   });
 }
 
-exports.fail = function(req, res, status=500, message="", err){
+exports.fail = function(req, res, status=500, message=""){
   res.status(status).send({
     error: true,
     status: status,

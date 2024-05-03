@@ -1,14 +1,17 @@
-const cardInfo = require("../cardsInfo");
 const Card = require('../../DB/models/models');
+const response = require('../../utilies/response');
 
-//const db = require('../../DB/mysql');
-//const TABLE = 'cards';
 
 const hola = (req, res)=>{
   res.status(200).send(res.data);
 }
 
-//posteando cartas a bd
+/**
+ * toma el array de cards del request e inserta cada elemento en
+ * la base de datos
+ * @param {Card[]} req -> se espera un array de objetos
+ * @param {*} res 
+ */
 const postCards = async (req, res)=>{
   try{
     const cardsData = req.body;
@@ -23,21 +26,21 @@ const postCards = async (req, res)=>{
     console.error('problemas en el post:', err);
   }
 
-  
-  /* console.log(req.body);
-  let data = req.body;
-  cardInfo.cards.push(data);
-  res.status(200).send(data); */
 };
 
+/**
+ * Devuelve las cartas de la base de datos
+ * @param {*} res
+ */
 const getCardsInfo = async(req, res)=>{
-  const cards = await Card.findAll();
-  res.status(200).send(cards);
-}
-
-function ejemplo(){
-  //return db.findAll(TABLA);
-}
+  try{
+    const cards = await Card.findAll();
+    response.success(req,res, 200, cards);
+    /* res.status(200).send(cards); */
+  }catch(err){
+    console.err('error al recuperar los datos:', err);
+  } 
+};
 
 module.exports = {
   hola,
