@@ -1,6 +1,11 @@
 # trabajo-ingweb2
 
 # Base de datos:
+
+##Configuración
+*Dentro del src/config -> puede encontrar archivos de configuración de la base de datos
+estos datos son usados para llevar a cabo la conexión, sientanse libres de configurarlo
+
 dentro del script models en la ruta /src/DB/model/models.js
 existen instrucciones para crear automaticamente la base de datos, que son las siguiente:
 
