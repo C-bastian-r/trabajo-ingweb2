@@ -30,10 +30,17 @@ const Card = sequelize.define('Cards',{
 
 /**
  * para sincronizar la bd (crearla automaticamente):
- * 1. "comente const Card ="
- * 2. "comente module.exports = Card;"
- * 3. ejecute en este archivo = node. models.js
+ * 1. "comente const Card =" (desde la constante hasta el simbolo de igualdad),
+ * de manera tal que quede solo sequelize.define('Cards',{...})
+ * 
+ * 2.comente "module.exports = Card;" (la exportacion al final del archivo)
+ * 
+ * 3. descomente sequelize.sync()
+ * 
+ * 4. ejecute en la terminal de este archivo "node models.js" (sin las comillas)
  */
+
+
 /* sequelize.sync() */
 
 module.exports = Card;

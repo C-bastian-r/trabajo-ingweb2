@@ -25,7 +25,6 @@ const postCards = async (req, res)=>{
   }catch(err){
     console.error('problemas en el post:', err);
   }
-
 };
 
 /**
