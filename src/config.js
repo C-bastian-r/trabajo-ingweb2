@@ -1,11 +1,16 @@
 require('dotenv').config();
 
 module.exports = {
-  //config puerto app
+  /**
+   * configuracion de app
+   */
   app:{
     port: process.env.PORT || 4000
   },
-  //config conn mysql
+  
+  /**
+   * configuracion de conexion mysql con variables de entorno
+   */
   mysql:{
     host: process.env.MYSQL_HOST || 'localhost',
     user: process.env.USER || 'root',
