@@ -1,9 +1,9 @@
 # trabajo-ingweb2
 
 # Instrucciones para correr por primera vez el proyecto.
-*1. Descargue el proyecto.
-*2. Abra la terminal en la carpeta del proyecto.
-*3. Ejecute el comando npm init -y
+* 1. Descargue el proyecto.
+* 2. Abra la terminal en la carpeta del proyecto.
+* 3. Ejecute el comando npm init -y
 
 # Base de datos:
 
