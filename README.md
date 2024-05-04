@@ -25,7 +25,6 @@ Para sincronizar la bd (crearla automaticamente):
 
 CREATE DATABASE cards_db;
 USE cards_db;
-
 CREATE TABLE cards(
 id INTEGER PRIMARY KEY,
 name VARCHAR(255),
