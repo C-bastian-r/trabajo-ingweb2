@@ -1,9 +1,21 @@
 const Card = require('../../DB/models/models');
 const response = require('../../utilies/response');
+const axios = require('axios');
 
 
-const hola = (req, res)=>{
-  res.status(200).send(res.data);
+const URL = "https://rickandmortyapi.com/api/character"
+
+/**
+ * manda al frontend la informacion de un api
+ */
+const getApiInfo = async(req, res)=>{
+  try {
+    const response = await axios.get(URL);
+    const data = response.data;
+    res.status(200).send(data)
+  }catch(err){
+    console.log(err);
+  }
 }
 
 /**
@@ -41,8 +53,42 @@ const getCardsInfo = async(req, res)=>{
   } 
 };
 
+/**
+ * Elimina un elemento de la bd de cards
+ * @response -> tabla de la bd actualizada
+ */
+const deleteById = async(req, res)=>{
+  try{
+    const id = req.params.id;
+    const cardItem = await Card.findByPk(id);
+    console.log(cardItem);
+    await cardItem.destroy();
+    const updatedCards = await Card.findAll();
+    response.success(req,res, 200, updatedCards);
+  }catch(err){
+    console.log(err);
+  }
+};
+
+/**
+ * Encuentra un elemento en la bd
+ * @response -> elemento encontrado
+ */
+const findById = async(req, res)=>{
+  const id = req.params.id;
+  try {
+  const card = await Card.findByPk(id)
+
+  response.success(req,res, 200, card)
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 module.exports = {
-  hola,
   postCards,
-  getCardsInfo
+  getCardsInfo,
+  getApiInfo,
+  deleteById,
+  findById
 }
